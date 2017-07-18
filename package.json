@@ -1,0 +1,30 @@
+{
+    "name": "ext",
+    "version": "3.4.1",
+    "description": "ExtJS",
+    "main": "ext-all.js",
+    "directories": {
+        "doc": "docs",
+        "example": "examples",
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Dontar/ExtJs3.4.git"
+    },
+    "keywords": [
+        "extjs",
+        "js",
+        "javascript"
+    ],
+    "author": "Sencha",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Dontar/ExtJs3.4/issues"
+    },
+    "homepage": "https://github.com/Dontar/ExtJs3.4#readme",
+    "types": "Ext3.d.ts"
+}
