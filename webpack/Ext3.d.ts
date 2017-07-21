@@ -68,6 +68,8 @@ interface StringConstructor {
 interface IExtString {
     format(value: string, ...params: any[]): string;
 }
+
+
 declare namespace Ext {
     export interface IExtPlugin {
         init(comp: Component): void;
@@ -241,7 +243,7 @@ declare namespace Ext {
         onRepeatClick(): any;
         restoreClick(): any;
         setButtonClass(): any;
-        setHandler(hanler: Function, scope?:any): void;
+        setHandler(hanler: Function, scope?: any): void;
         setIcon(): any;
         setIconClass(): any;
         setText(): any;
@@ -440,8 +442,8 @@ declare namespace Ext {
     }
     export interface ComponentConfig extends util.ObservableConfig {
         allowDomMove?: boolean;
-        applyTo?: string|Element|HTMLElement;
-        autoEl?: any|string;
+        applyTo?: string | Element | HTMLElement;
+        autoEl?: any | string;
         autoShow?: boolean;
         bubbleEvents?: boolean;
         clearCls?: string;
@@ -463,14 +465,14 @@ declare namespace Ext {
         labelSeparator?: string;
         labelStyle?: string;
         overCls?: string;
-        plugins?: any|any[];
+        plugins?: any | any[];
         ptype?: string;
         ref?: string;
         renderTo?: string;
         stateEvents?: string[];
         stateId?: string;
         stateful?: boolean;
-        style?: any|string;
+        style?: any | string;
         tpl?: string;
         tplWriteMode?: string;
         xtype?: string;
@@ -691,245 +693,245 @@ declare namespace Ext {
          * @return {Ext.Container} The first Container which matches the given xtype or class
          */
         findParentByType(xtype: string): any;
-    /**
-     * Try to focus this component.
-     * @param {Boolean} selectText (optional) If applicable, true to also select the text in this component
-     * @param {Boolean/Number} delay (optional) Delay the focus this number of milliseconds (true for 10 milliseconds)
-     * @return {Ext.Component} this
-     */
-        focus(selectText?: boolean, delay?: boolean|number): Component;
-    /**
-     * Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.
-     * @return {Ext.Container} the Container which owns this Component.
-     */
+        /**
+         * Try to focus this component.
+         * @param {Boolean} selectText (optional) If applicable, true to also select the text in this component
+         * @param {Boolean/Number} delay (optional) Delay the focus this number of milliseconds (true for 10 milliseconds)
+         * @return {Ext.Component} this
+         */
+        focus(selectText?: boolean, delay?: boolean | number): Component;
+        /**
+         * Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.
+         * @return {Ext.Container} the Container which owns this Component.
+         */
         getBubbleTarget(): any;
-    /**
-     * <p>Returns the {@link Ext.Element} which encapsulates this Component.</p>
-     * <p>This will <i>usually</i> be a &lt;DIV> element created by the class's onRender method, but
-     * that may be overridden using the {@link #autoEl} config.</p>
-     * <br><p><b>Note</b>: this element will not be available until this Component has been rendered.</p><br>
-     * <p>To add listeners for <b>DOM events</b> to this Component (as opposed to listeners
-     * for this Component's own Observable events), see the {@link #listeners} config for a suggestion,
-     * or use a render listener directly:</p><pre><code>
-new Ext.Panel({
-    title: 'The Clickable Panel',
-    listeners: {
-        render: function(p) {
-            // Append the Panel to the click handler&#39;s argument list.
-            p.getEl().on('click', handlePanelClick.createDelegate(null, [p], true));
-        },
-        single: true  // Remove the listener after first invocation
-    }
-});
-</code></pre>
-     * @return {Ext.Element} The Element which encapsulates this Component.
-     */
+        /**
+         * <p>Returns the {@link Ext.Element} which encapsulates this Component.</p>
+         * <p>This will <i>usually</i> be a &lt;DIV> element created by the class's onRender method, but
+         * that may be overridden using the {@link #autoEl} config.</p>
+         * <br><p><b>Note</b>: this element will not be available until this Component has been rendered.</p><br>
+         * <p>To add listeners for <b>DOM events</b> to this Component (as opposed to listeners
+         * for this Component's own Observable events), see the {@link #listeners} config for a suggestion,
+         * or use a render listener directly:</p><pre><code>
+        new Ext.Panel({
+            title: 'The Clickable Panel',
+            listeners: {
+                render: function(p) {
+                    // Append the Panel to the click handler&#39;s argument list.
+                    p.getEl().on('click', handlePanelClick.createDelegate(null, [p], true));
+                },
+                single: true  // Remove the listener after first invocation
+            }
+        });
+        </code></pre>
+         * @return {Ext.Element} The Element which encapsulates this Component.
+         */
         getEl(): Element;
-    /**
-     * Returns the <code>id</code> of this component or automatically generates and
-     * returns an <code>id</code> if an <code>id</code> is not defined yet:<pre><code>
-     * 'ext-comp-' + (++Ext.Component.AUTO_ID)
-     * </code></pre>
-     * @return {String} id
-     */
+        /**
+         * Returns the <code>id</code> of this component or automatically generates and
+         * returns an <code>id</code> if an <code>id</code> is not defined yet:<pre><code>
+         * 'ext-comp-' + (++Ext.Component.AUTO_ID)
+         * </code></pre>
+         * @return {String} id
+         */
         getId(): any;
-    /**
-     * Returns the <code>{@link #itemId}</code> of this component.  If an
-     * <code>{@link #itemId}</code> was not assigned through configuration the
-     * <code>id</code> is returned using <code>{@link #getId}</code>.
-     * @return {String}
-     */
+        /**
+         * Returns the <code>{@link #itemId}</code> of this component.  If an
+         * <code>{@link #itemId}</code> was not assigned through configuration the
+         * <code>id</code> is returned using <code>{@link #getId}</code>.
+         * @return {String}
+         */
         getItemId(): any;
-    /**
-     * Gets the xtype for this component as registered with {@link Ext.ComponentMgr}. For a list of all
-     * available xtypes, see the {@link Ext.Component} header. Example usage:
-     * <pre><code>
-var t = new Ext.form.TextField();
-alert(t.getXType());  // alerts 'textfield'
-</code></pre>
-     * @return {String} The xtype
-     */
+        /**
+         * Gets the xtype for this component as registered with {@link Ext.ComponentMgr}. For a list of all
+         * available xtypes, see the {@link Ext.Component} header. Example usage:
+         * <pre><code>
+        var t = new Ext.form.TextField();
+        alert(t.getXType());  // alerts 'textfield'
+        </code></pre>
+         * @return {String} The xtype
+         */
         getXType(): any;
-    /**
-     * <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
-     * available xtypes, see the {@link Ext.Component} header.</p>
-     * <p><b>If using your own subclasses, be aware that a Component must register its own xtype
-     * to participate in determination of inherited xtypes.</b></p>
-     * <p>Example usage:</p>
-     * <pre><code>
-var t = new Ext.form.TextField();
-alert(t.getXTypes());  // alerts 'component/box/field/textfield'
-</code></pre>
-     * @return {String} The xtype hierarchy string
-     */
+        /**
+         * <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
+         * available xtypes, see the {@link Ext.Component} header.</p>
+         * <p><b>If using your own subclasses, be aware that a Component must register its own xtype
+         * to participate in determination of inherited xtypes.</b></p>
+         * <p>Example usage:</p>
+         * <pre><code>
+        var t = new Ext.form.TextField();
+        alert(t.getXTypes());  // alerts 'component/box/field/textfield'
+        </code></pre>
+         * @return {String} The xtype hierarchy string
+         */
         getXTypes(): any;
-    /**
-     * Hide this component.  Listen to the '{@link #beforehide}' event and return
-     * <tt>false</tt> to cancel hiding the component.  Fires the '{@link #hide}'
-     * event after hiding the component. Note this method is called internally if
-     * the component is configured to be <code>{@link #hidden}</code>.
-     * @return {Ext.Component} this
-     */
+        /**
+         * Hide this component.  Listen to the '{@link #beforehide}' event and return
+         * <tt>false</tt> to cancel hiding the component.  Fires the '{@link #hide}'
+         * event after hiding the component. Note this method is called internally if
+         * the component is configured to be <code>{@link #hidden}</code>.
+         * @return {Ext.Component} this
+         */
         hide(): this;
-    /**
-     * @private
-     * Method to establish a reference to a component.
-     */
+        /**
+         * @private
+         * Method to establish a reference to a component.
+         */
         protected initRef(): void;
-    /**
-     * Returns true if this component is visible.
-     * @return {Boolean} True if this component is visible, false otherwise.
-     */
+        /**
+         * Returns true if this component is visible.
+         * @return {Boolean} True if this component is visible, false otherwise.
+         */
         isVisible(): boolean;
-    /**
-     * <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
-     * from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
-     * <p><b>If using your own subclasses, be aware that a Component must register its own xtype
-     * to participate in determination of inherited xtypes.</b></p>
-     * <p>For a list of all available xtypes, see the {@link Ext.Component} header.</p>
-     * <p>Example usage:</p>
-     * <pre><code>
-var t = new Ext.form.TextField();
-var isText = t.isXType('textfield');        // true
-var isBoxSubclass = t.isXType('box');       // true, descended from BoxComponent
-var isBoxInstance = t.isXType('box', true); // false, not a direct BoxComponent instance
-</code></pre>
-     * @param {String/Ext.Component/Class} xtype The xtype to check for this Component. Note that the the component can either be an instance
-     * or a component class:
-     * <pre><code>
-var c = new Ext.Component();
-console.log(c.isXType(c));
-console.log(c.isXType(Ext.Component));
-</code></pre>
-     * @param {Boolean} shallow (optional) False to check whether this Component is descended from the xtype (this is
-     * the default), or true to check whether this Component is directly of the specified xtype.
-     * @return {Boolean} True if this component descends from the specified xtype, false otherwise.
-     */
+        /**
+         * <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
+         * from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
+         * <p><b>If using your own subclasses, be aware that a Component must register its own xtype
+         * to participate in determination of inherited xtypes.</b></p>
+         * <p>For a list of all available xtypes, see the {@link Ext.Component} header.</p>
+         * <p>Example usage:</p>
+         * <pre><code>
+    var t = new Ext.form.TextField();
+    var isText = t.isXType('textfield');        // true
+    var isBoxSubclass = t.isXType('box');       // true, descended from BoxComponent
+    var isBoxInstance = t.isXType('box', true); // false, not a direct BoxComponent instance
+    </code></pre>
+         * @param {String/Ext.Component/Class} xtype The xtype to check for this Component. Note that the the component can either be an instance
+         * or a component class:
+         * <pre><code>
+    var c = new Ext.Component();
+    console.log(c.isXType(c));
+    console.log(c.isXType(Ext.Component));
+    </code></pre>
+         * @param {Boolean} shallow (optional) False to check whether this Component is descended from the xtype (this is
+         * the default), or true to check whether this Component is directly of the specified xtype.
+         * @return {Boolean} True if this component descends from the specified xtype, false otherwise.
+         */
         isXType(): any;
-    /**
-     * <p>Adds listeners to any Observable object (or Elements) which are automatically removed when this Component
-     * is destroyed. Usage:</p><code><pre>
-myGridPanel.mon(myGridPanel.getSelectionModel(), 'selectionchange', handleSelectionChange, null, {buffer: 50});
-</pre></code>
-     * <p>or:</p><code><pre>
-myGridPanel.mon(myGridPanel.getSelectionModel(), {
-    selectionchange: handleSelectionChange,
-    buffer: 50
-});
-</pre></code>
-     * @param {Observable|Element} item The item to which to add a listener/listeners.
-     * @param {Object|String} ename The event name, or an object containing event name properties.
-     * @param {Function} fn Optional. If the <code>ename</code> parameter was an event name, this
-     * is the handler function.
-     * @param {Object} scope Optional. If the <code>ename</code> parameter was an event name, this
-     * is the scope (<code>this</code> reference) in which the handler function is executed.
-     * @param {Object} opt Optional. If the <code>ename</code> parameter was an event name, this
-     * is the {@link Ext.util.Observable#addListener addListener} options.
-     */
+        /**
+         * <p>Adds listeners to any Observable object (or Elements) which are automatically removed when this Component
+         * is destroyed. Usage:</p><code><pre>
+    myGridPanel.mon(myGridPanel.getSelectionModel(), 'selectionchange', handleSelectionChange, null, {buffer: 50});
+    </pre></code>
+         * <p>or:</p><code><pre>
+    myGridPanel.mon(myGridPanel.getSelectionModel(), {
+        selectionchange: handleSelectionChange,
+        buffer: 50
+    });
+    </pre></code>
+         * @param {Observable|Element} item The item to which to add a listener/listeners.
+         * @param {Object|String} ename The event name, or an object containing event name properties.
+         * @param {Function} fn Optional. If the <code>ename</code> parameter was an event name, this
+         * is the handler function.
+         * @param {Object} scope Optional. If the <code>ename</code> parameter was an event name, this
+         * is the scope (<code>this</code> reference) in which the handler function is executed.
+         * @param {Object} opt Optional. If the <code>ename</code> parameter was an event name, this
+         * is the {@link Ext.util.Observable#addListener addListener} options.
+         */
         mon(): any;
-    /**
-     * Removes listeners that were added by the {@link #mon} method.
-     * @param {Observable|Element} item The item from which to remove a listener/listeners.
-     * @param {Object|String} ename The event name, or an object containing event name properties.
-     * @param {Function} fn Optional. If the <code>ename</code> parameter was an event name, this
-     * is the handler function.
-     * @param {Object} scope Optional. If the <code>ename</code> parameter was an event name, this
-     * is the scope (<code>this</code> reference) in which the handler function is executed.
-     */
+        /**
+         * Removes listeners that were added by the {@link #mon} method.
+         * @param {Observable|Element} item The item from which to remove a listener/listeners.
+         * @param {Object|String} ename The event name, or an object containing event name properties.
+         * @param {Function} fn Optional. If the <code>ename</code> parameter was an event name, this
+         * is the handler function.
+         * @param {Object} scope Optional. If the <code>ename</code> parameter was an event name, this
+         * is the scope (<code>this</code> reference) in which the handler function is executed.
+         */
         mun(): any;
-    /**
-     * Returns the next component in the owning container
-     * @return Ext.Component
-     */
+        /**
+         * Returns the next component in the owning container
+         * @return Ext.Component
+         */
         nextSibling(): any;
-    /**
-     * @private
-     * Method to manage awareness of when components are added to their
-     * respective Container, firing an added event.
-     * References are established at add time rather than at render time.
-     * @param {Ext.Container} container Container which holds the component
-     * @param {number} pos Position at which the component was added
-     */
+        /**
+         * @private
+         * Method to manage awareness of when components are added to their
+         * respective Container, firing an added event.
+         * References are established at add time rather than at render time.
+         * @param {Ext.Container} container Container which holds the component
+         * @param {number} pos Position at which the component was added
+         */
         protected onAdded(): any;
-    /**
-     * @private
-     * Method to manage awareness of when components are removed from their
-     * respective Container, firing an removed event. References are properly
-     * cleaned up after removing a component from its owning container.
-     */
+        /**
+         * @private
+         * Method to manage awareness of when components are removed from their
+         * respective Container, firing an removed event. References are properly
+         * cleaned up after removing a component from its owning container.
+         */
         onRemoved(): any;
-    // private
-    // default function is not really useful
+        // private
+        // default function is not really useful
         onRender(ct: Element, position: HTMLElement): void;
-    /**
-     * Returns the previous component in the owning container
-     * @return Ext.Component
-     */
+        /**
+         * Returns the previous component in the owning container
+         * @return Ext.Component
+         */
         previousSibling(): any;
-    /**
-     * Removes a CSS class from the component's underlying element.
-     * @param {string} cls The CSS class name to remove
-     * @return {Ext.Component} this
-     */
+        /**
+         * Removes a CSS class from the component's underlying element.
+         * @param {string} cls The CSS class name to remove
+         * @return {Ext.Component} this
+         */
         removeClass(cls: string): void;
-    /**
-     * <p>Render this Component into the passed HTML element.</p>
-     * <p><b>If you are using a {@link Ext.Container Container} object to house this Component, then
-     * do not use the render method.</b></p>
-     * <p>A Container's child Components are rendered by that Container's
-     * {@link Ext.Container#layout layout} manager when the Container is first rendered.</p>
-     * <p>Certain layout managers allow dynamic addition of child components. Those that do
-     * include {@link Ext.layout.CardLayout}, {@link Ext.layout.AnchorLayout},
-     * {@link Ext.layout.FormLayout}, {@link Ext.layout.TableLayout}.</p>
-     * <p>If the Container is already rendered when a new child Component is added, you may need to call
-     * the Container's {@link Ext.Container#doLayout doLayout} to refresh the view which causes any
-     * unrendered child Components to be rendered. This is required so that you can add multiple
-     * child components if needed while only refreshing the layout once.</p>
-     * <p>When creating complex UIs, it is important to remember that sizing and positioning
-     * of child items is the responsibility of the Container's {@link Ext.Container#layout layout} manager.
-     * If you expect child items to be sized in response to user interactions, you must
-     * configure the Container with a layout manager which creates and manages the type of layout you
-     * have in mind.</p>
-     * <p><b>Omitting the Container's {@link Ext.Container#layout layout} config means that a basic
-     * layout manager is used which does nothing but render child components sequentially into the
-     * Container. No sizing or positioning will be performed in this situation.</b></p>
-     * @param {Element/HTMLElement/String} container (optional) The element this Component should be
-     * rendered into. If it is being created from existing markup, this should be omitted.
-     * @param {String/Number} position (optional) The element ID or DOM node index within the container <b>before</b>
-     * which this component will be inserted (defaults to appending to the end of the container)
-     */
-        render(ct: Element|HTMLElement|String, position?: String|Number): this;
-    /**
-     * Convenience function for setting disabled/enabled by boolean.
-     * @param {Boolean} disabled
-     * @return {Ext.Component} this
-     */
+        /**
+         * <p>Render this Component into the passed HTML element.</p>
+         * <p><b>If you are using a {@link Ext.Container Container} object to house this Component, then
+         * do not use the render method.</b></p>
+         * <p>A Container's child Components are rendered by that Container's
+         * {@link Ext.Container#layout layout} manager when the Container is first rendered.</p>
+         * <p>Certain layout managers allow dynamic addition of child components. Those that do
+         * include {@link Ext.layout.CardLayout}, {@link Ext.layout.AnchorLayout},
+         * {@link Ext.layout.FormLayout}, {@link Ext.layout.TableLayout}.</p>
+         * <p>If the Container is already rendered when a new child Component is added, you may need to call
+         * the Container's {@link Ext.Container#doLayout doLayout} to refresh the view which causes any
+         * unrendered child Components to be rendered. This is required so that you can add multiple
+         * child components if needed while only refreshing the layout once.</p>
+         * <p>When creating complex UIs, it is important to remember that sizing and positioning
+         * of child items is the responsibility of the Container's {@link Ext.Container#layout layout} manager.
+         * If you expect child items to be sized in response to user interactions, you must
+         * configure the Container with a layout manager which creates and manages the type of layout you
+         * have in mind.</p>
+         * <p><b>Omitting the Container's {@link Ext.Container#layout layout} config means that a basic
+         * layout manager is used which does nothing but render child components sequentially into the
+         * Container. No sizing or positioning will be performed in this situation.</b></p>
+         * @param {Element/HTMLElement/String} container (optional) The element this Component should be
+         * rendered into. If it is being created from existing markup, this should be omitted.
+         * @param {String/Number} position (optional) The element ID or DOM node index within the container <b>before</b>
+         * which this component will be inserted (defaults to appending to the end of the container)
+         */
+        render(ct: Element | HTMLElement | String, position?: String | Number): this;
+        /**
+         * Convenience function for setting disabled/enabled by boolean.
+         * @param {Boolean} disabled
+         * @return {Ext.Component} this
+         */
         setDisabled(disable: boolean): this;
-    /**
-     * Convenience function to hide or show this component by boolean.
-     * @param {Boolean} visible True to show, false to hide
-     * @return {Ext.Component} this
-     */
+        /**
+         * Convenience function to hide or show this component by boolean.
+         * @param {Boolean} visible True to show, false to hide
+         * @return {Ext.Component} this
+         */
         setVisible(visible: boolean): this;
-    /**
-     * Show this component.  Listen to the '{@link #beforeshow}' event and return
-     * <tt>false</tt> to cancel showing the component.  Fires the '{@link #show}'
-     * event after showing the component.
-     * @return {Ext.Component} this
-     */
+        /**
+         * Show this component.  Listen to the '{@link #beforeshow}' event and return
+         * <tt>false</tt> to cancel showing the component.  Fires the '{@link #show}'
+         * event after showing the component.
+         * @return {Ext.Component} this
+         */
         show(el?: Element): this;
-    /**
-     * Update the content area of a component.
-     * @param {Mixed} htmlOrData
-     * If this component has been configured with a template via the tpl config
-     * then it will use this argument as data to populate the template.
-     * If this component was not configured with a template, the components
-     * content area will be updated via Ext.Element update
-     * @param {Boolean} loadScripts
-     * (optional) Only legitimate when using the html configuration. Defaults to false
-     * @param {Function} callback
-     * (optional) Only legitimate when using the html configuration. Callback to execute when scripts have finished loading
-     */
+        /**
+         * Update the content area of a component.
+         * @param {Mixed} htmlOrData
+         * If this component has been configured with a template via the tpl config
+         * then it will use this argument as data to populate the template.
+         * If this component was not configured with a template, the components
+         * content area will be updated via Ext.Element update
+         * @param {Boolean} loadScripts
+         * (optional) Only legitimate when using the html configuration. Defaults to false
+         * @param {Function} callback
+         * (optional) Only legitimate when using the html configuration. Callback to execute when scripts have finished loading
+         */
         update(htmlOrData: any, loadScript?: boolean, callback?: Function): void;
     }
     export var ComponentMgr: {
@@ -954,32 +956,32 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
     }
     export class CompositeElementLite extends Element {
         elements: any;
-        add(els: HTMLElement[]|CompositeElementLite): CompositeElement;
+        add(els: HTMLElement[] | CompositeElementLite): CompositeElement;
         clear(): void;
-        contains(el: string|HTMLElement|Element): boolean;
+        contains(el: string | HTMLElement | Element): boolean;
         each(fn: (el: Element, c: CompositeElement, idx: number) => void, scope?: any): CompositeElement;
-        fill(els: HTMLElement[]|CompositeElementLite): CompositeElement;
+        fill(els: HTMLElement[] | CompositeElementLite): CompositeElement;
         filter(selector: string): CompositeElement;
         filter(selector: (el: Element, idx: number) => void): CompositeElement;
         first(): Element;
         getCount(): number;
-        indexOf(el: string|HTMLElement|Element): number;
+        indexOf(el: string | HTMLElement | Element): number;
         item(idx: number): Element;
         last(): Element;
         removeElement(el: any): CompositeElement;
         replaceElement(el: any, replacement: any, domReplace?: boolean): CompositeElement;
     }
     export interface ContainerConfig extends BoxComponentConfig {
-        activeItem?: string|number;
+        activeItem?: string | number;
         autoDestroy?: boolean;
-        bufferResize?: boolean|string;
+        bufferResize?: boolean | string;
         defaultType?: string;
-        defaults?: any|Function;
+        defaults?: any | Function;
         forceLayout?: boolean;
         hideBorders?: boolean;
         // items?: Component[]|ComponentConfig[];
         items?: any[];
-        layout?: string|{ type: string; padding: string; align: string; };
+        layout?: string | { type: string; padding: string; align: string; };
         layoutConfig?: layout.ContainerLayoutConfig;
         monitorResize?: boolean;
         resizeEvent?: string;
@@ -1020,7 +1022,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         onLayout(): any;
         onRemove(): any;
         onShow(): any;
-        remove(component: Component, autoDestroy?:boolean): void;
+        remove(component: Component, autoDestroy?: boolean): void;
         removeAll(destroy?: boolean): void;
         setLayout(layout: layout.ContainerLayout): any;
         shouldBufferLayout(): any;
@@ -1164,7 +1166,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         }
         export interface DirectProxyConfig extends data.DataProxyConfig {
             directFn?: Function;
-            paramOrder?: string|string[];
+            paramOrder?: string | string[];
             paramsAsHash?: boolean;
         }
         export class DirectProxy extends data.DataProxy {
@@ -1278,16 +1280,16 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             constructor(config?: NodeConfig);
             appendChild(node: NodeConfig): this;
             appendChild(node: this): this;
-            bubble(fn: (node: this) => any, scope?:any, args?: any[]): void;
-            cascade(fn: (node: this) => any, scope?:any, args?: any[]): void;
+            bubble(fn: (node: this) => any, scope?: any, args?: any[]): void;
+            cascade(fn: (node: this) => any, scope?: any, args?: any[]): void;
             clear(): any;
             contains(node: this): boolean;
             destroy(): any;
-            eachChild(fn: (node: this) => any, scope?:any, args?: any[]): void;
+            eachChild(fn: (node: this) => any, scope?: any, args?: any[]): void;
             findChild(attribute: string, value: any, deep?: boolean): this;
-            findChildBy(fn: (node: this) => boolean|any, scope?, deep?:boolean): this;
+            findChildBy(fn: (node: this) => boolean | any, scope?, deep?: boolean): this;
             getDepth(): number;
-            getOwnerTree<T extends Tree>(): T;
+            getOwnerTree<T>(): T;
             getPath(): string;
             hasChildNodes(): boolean;
             indexOf(node: this): number;
@@ -1324,7 +1326,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             node: any;
             phantom: boolean;
             store: data.Store<T>;
-            static create(fields: FieldConfig[]|string[]): typeof Record;
+            static create(fields: FieldConfig[] | string[]): typeof Record;
             constructor(data: any, key?: any);
             beginEdit(): void;
             cancelEdit(): void;
@@ -1410,7 +1412,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             sortInfo?: any;
             storeId?: string;
             url?: string;
-            writer?: DataWriterConfig|DataWriter;
+            writer?: DataWriterConfig | DataWriter;
             recordType?: typeof Record;
         }
         export interface ILoadOptions {
@@ -1462,9 +1464,9 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             destroyRecord(): any;
             doTransaction(): any;
             doUpdate(): any;
-            each(cb: (rec: Record<T>) => boolean|void, scope?: any): void;
+            each(cb: (rec: Record<T>) => boolean | void, scope?: any): void;
             execute(): any;
-            filter(field: string|any[], value?: any, anyMatch?: boolean, caseSensitive?: boolean, exactMatch?: boolean): void;
+            filter(field: string | any[], value?: any, anyMatch?: boolean, caseSensitive?: boolean, exactMatch?: boolean): void;
             filterBy(callback: (rec, id) => any, scope?: any): any;
             find(fieldName: string, value: string, startIndex?: number, anyMatch?: boolean, caseSensitive?: boolean): number;
             find(fieldName: string, value: RegExp, startIndex?: number, anyMatch?: boolean, caseSensitive?: boolean): number;
@@ -1485,7 +1487,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             isFiltered(): any;
             load(options?: ILoadOptions): any;
             loadData(data: any, append?: boolean): void;
-            loadRecords(o: {records: data.Record<T>[], totalRecords?: number}, options: ILoadOptions, success: boolean): void;
+            loadRecords(o: { records: data.Record<T>[], totalRecords?: number }, options: ILoadOptions, success: boolean): void;
             multiSort(): any;
             onClear(): any;
             onCreateRecords(): any;
@@ -1497,7 +1499,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             reMap(): any;
             rejectChanges(): any;
             reload(): any;
-            remove(rec: Record<any>|Record<any>[]): void;
+            remove(rec: Record<any> | Record<any>[]): void;
             removeAll(): void;
             removeAt(idx: number): void;
             removeFromBatch(): any;
@@ -1519,7 +1521,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             root: any;
             constructor(config: TreeConfig);
             getNodeById(id: any): Node;
-            getRootNode(): any;
+            getRootNode(): Node;
             proxyNodeEvent(): any;
             registerNode(): any;
             setRootNode(): any;
@@ -1595,7 +1597,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         afterRender(): any;
         bindStore(): any;
         bufferRender(): any;
-        clearSelections(suppressEvent?:boolean): void;
+        clearSelections(suppressEvent?: boolean): void;
         collectData(): any;
         deselect(): any;
         doMultiSelection(): any;
@@ -1611,7 +1613,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         getSelectionCount(): any;
         getStore<T>(): data.Store<T>;
         getTemplateTarget(): any;
-        indexOf(nodeInfo: HTMLElement|string|number|data.Record<any>): number;
+        indexOf(nodeInfo: HTMLElement | string | number | data.Record<any>): number;
         initComponent(): any;
         isSelected(): any;
         onAdd(): any;
@@ -2082,10 +2084,10 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         }
         export interface RemotingProviderConfig extends direct.JsonProviderConfig {
             actions?: any;
-            enableBuffer?: boolean|number;
+            enableBuffer?: boolean | number;
             enableUrlEncode?: boolean;
             maxRetries?: number;
-            namespace?: string| any;
+            namespace?: string | any;
             timeout?: number;
             url?: string;
         }
@@ -2141,8 +2143,8 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         pseudos: any;
         compile(selector: string, ctype?: string): Function;
         filter(els: any[], selector: string, nonMatches: boolean): any[];
-        is(el: string|HTMLElement|any[], selector: string): boolean;
-        jsSelect(selector: string, root?: Node|string): any[];
+        is(el: string | HTMLElement | any[], selector: string): boolean;
+        jsSelect(selector: string, root?: Node | string): any[];
         selectNode(selector: string, root?: Node): Element;
         selectNumber(selector: string, root?: Node, defaultValue?: any): number;
         selectValue(selector: string, root?: Node, defaultValue?: boolean): string;
@@ -2195,7 +2197,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         addKeyMap(): any;
         private addUnits(): any;
         alignTo(el: Ext.Element, pos: string, offsets?: number[], animate?: any): this;
-        anchorTo(el: Ext.Element, pos: string, offsets?: number[], animate?: any, monitorScroll?: boolean|number, callback?:Function ): this;
+        anchorTo(el: Ext.Element, pos: string, offsets?: number[], animate?: any, monitorScroll?: boolean | number, callback?: Function): this;
         animate(): any;
         appendChild(el: any): any;
         appendTo(): any;
@@ -2208,7 +2210,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         clearOpacity(): any;
         clearPositioning(): any;
         clip(): any;
-        contains(el: string|HTMLElement|Element): boolean;
+        contains(el: string | HTMLElement | Element): boolean;
         createChild(data: any): Element;
         createProxy(): any;
         createShim(): any;
@@ -2336,7 +2338,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         toJson(): any;
     }
     export var Error: {
-        new (): Error;
+        new(): Error;
         prototype: Error;
     }
     export var EventManager: {
@@ -2877,7 +2879,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             setDisabledDays(): any;
             setMaxValue(): any;
             setMinValue(): any;
-            setValue(value: string|Date): void;
+            setValue(value: string | Date): void;
             validateBlur(): any;
         }
         export interface DisplayFieldConfig extends form.FieldConfig {
@@ -3283,7 +3285,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             setLimit(): any;
             setMaxValue(): any;
             setMinValue(): any;
-            setValue(value: string|Date): void;
+            setValue(value: string | Date): void;
         }
         export interface TriggerFieldConfig extends form.TextFieldConfig {
             autoCreate?: any
@@ -3482,7 +3484,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             emptyGroupText?: string;
             fixed?: boolean;
             groupName?: string;
-            groupRenderer?: Function|string;
+            groupRenderer?: Function | string;
             groupable?: boolean;
             header?: string;
             hidden?: boolean;
@@ -3490,7 +3492,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             id?: any;
             isColumn?: boolean;
             menuDisabled?: boolean;
-            renderer?: Function|string;
+            renderer?: Function | string;
             resizable?: boolean;
             scope?: any;
             sortable?: boolean;
@@ -3612,10 +3614,10 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             loadMask?: boolean;
             maxHeight?: number;
             minColumnWidth?: number;
-            selModel?: AbstractSelectionModel|AbstractSelectionModelConfig;
-            sm?: AbstractSelectionModel|AbstractSelectionModelConfig;
+            selModel?: AbstractSelectionModel | AbstractSelectionModelConfig;
+            sm?: AbstractSelectionModel | AbstractSelectionModelConfig;
             stateEvents?: string[];
-            store?: data.Store<any>|string;
+            store?: data.Store<any> | string;
             stripeRows?: boolean;
             trackMouseOver?: boolean;
             view?: GridView;
@@ -3966,7 +3968,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             setProperty(prop: string, val: any, create?: boolean): void;
             setSource(data: any): void;
         }
-        export class PropertyRecord extends data.Record<{name: string, value: any}> {}
+        export class PropertyRecord extends data.Record<{ name: string, value: any }> { }
         export class PropertyStore extends util.Observable {
             constructor(grid: Ext.grid.GridPanel, source?: any);
             getProperty(): any;
@@ -4093,13 +4095,13 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
     export function apply(dest: any, source: any, defaults?: any): any;
     export function applyIf(dest: any, source: any): any;
     export function clean(arr: any[]): any[];
-    export function copyTo(dest: any, source: any, names: string[]|string): any;
+    export function copyTo(dest: any, source: any, names: string[] | string): any;
     export function create<U extends ComponentConfig, T extends Component>(config: U, defaultType?: string): T;
     export function createDelegate(): Function;
     export function createInterceptor(): any;
     export function createSequence(): any;
     export function decode(value: string): any;
-    export function defer(cb:Function, millis: number, scope?: any, args?: any[], appendArgs?: boolean): number;
+    export function defer(cb: Function, millis: number, scope?: any, args?: any[], appendArgs?: boolean): number;
     export function define(): any;
     export function destroy(): any;
     export function destroyMembers(): any;
@@ -4149,7 +4151,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
     export function query(): any;
     export function reg(xtype: string, classConstr: Function): any;
     export function removeNode(el: any): void;
-    export function select(selector: string, root?: HTMLElement|string): CompositeElement;
+    export function select(selector: string, root?: HTMLElement | string): CompositeElement;
     export function sum(): any;
     export function toArray(): any;
     export function type(): any;
@@ -4160,7 +4162,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
     export function value<T>(value: T, defaultValue: T, allowBlank?: boolean): T;
     export function zip(): any;
     export interface KeyMapConfig {
-        key: string|string[];  //A single keycode or an array of keycodes to handle
+        key: string | string[];  //A single keycode or an array of keycodes to handle
         shift?: boolean;          //True to handle key only when shift is pressed, False to handle the key only when shift is not pressed (defaults to undefined)
         ctrl?: boolean;          //True to handle key only when ctrl is pressed, False to handle the key only when ctrl is not pressed (defaults to undefined)
         alt?: boolean;          //True to handle key only when alt is pressed, False to handle the key only when alt is not pressed (defaults to undefined)
@@ -4170,7 +4172,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
     }
     export class KeyMap {
         stopEvent: boolean;
-        constructor(el: string|Element, config: KeyMapConfig, eventName?: string);
+        constructor(el: string | Element, config: KeyMapConfig, eventName?: string);
         addBinding(map: KeyMapConfig): void;
         disable(): void;
         enable(): void;
@@ -4480,7 +4482,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         export class CardLayout extends layout.FitLayout {
             type: any;
             renderAll(): any;
-            setActiveItem(item: number|string): void;
+            setActiveItem(item: number | string): void;
         }
         //}
         export interface ColumnLayoutConfig extends layout.ContainerLayoutConfig {
@@ -4944,7 +4946,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         hide(): MessageBox;
         isVisible(): any;
         progress(): MessageBox;
-        prompt(title: string, msg: string, cb: Function, scope?:any, prm?:number): MessageBox;
+        prompt(title: string, msg: string, cb: Function, scope?: any, prm?: number): MessageBox;
         setIcon(name: any): MessageBox;
         show(config: any): MessageBox;
         updateProgress(val: number, progressText?: string, msg?: string): MessageBox;
@@ -4988,14 +4990,14 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         handler: (event: string, toolEl: Element, panel: Panel, tc: ToolConfig) => void;
         stopEvent?: boolean;
         scope?: any;
-        qtip?: string|any;
+        qtip?: string | any;
         hidden?: boolean;
         on?: any;
     }
     export interface PanelConfig extends ContainerConfig {
         animCollapse?: boolean;
         autoHeight?: boolean;
-        autoLoad?: any|string|Function;
+        autoLoad?: any | string | Function;
         baseCls?: string;
         // bbar?: ComponentConfig|ComponentConfig[]|Component[];
         bbar?: any;
@@ -5003,7 +5005,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         bodyBorder?: boolean;
         bodyCfg?: any;
         bodyCssClass?: string;
-        bodyStyle?: any|string;
+        bodyStyle?: any | string;
         border?: boolean;
         buttonAlign?: string;
         // buttons?: ButtonConfig[]|Button[];
@@ -5030,18 +5032,18 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         keys?: KeyMapConfig;
         maskDisabled?: boolean;
         minButtonWidth?: number;
-        padding?: number|string;
+        padding?: number | string;
         preventBodyReset?: boolean;
         resizeEvent?: string;
-        shadow?: boolean|string;
+        shadow?: boolean | string;
         shadowOffset?: number;
         shim?: boolean;
         // tbar?: ComponentConfig[]|Component[];
-        tbar?: ToolbarConfig|ComponentConfig[]|any;
+        tbar?: ToolbarConfig | ComponentConfig[] | any;
         tbarCfg?: any;
         title?: string;
         titleCollapse?: boolean;
-        toolTemplate?: Template|XTemplate;
+        toolTemplate?: Template | XTemplate;
         tools?: ToolConfig[];
         unstyled?: boolean;
     }
@@ -5563,7 +5565,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             enable(): any;
             focus(): any;
         }
-        export interface FillConfig extends Toolbar.SpacerConfig {}
+        export interface FillConfig extends Toolbar.SpacerConfig { }
         export class Fill extends Toolbar.Spacer {
             isFill: any;
             constructor(config?: FillConfig);
@@ -5645,7 +5647,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             point: any; // - The point of the drop - append, above or below
             source: dd.DragSource;// - The drag source
             rawEvent: MouseEvent; // - Raw mouse event
-            dropNode: TreeNode| TreeNode[];// - Drop node(s) provided by the source OR you can supply node(s) to be inserted by setting them on this object.
+            dropNode: TreeNode | TreeNode[];// - Drop node(s) provided by the source OR you can supply node(s) to be inserted by setting them on this object.
             cancel: boolean;// - Set this to true to cancel the drop.
             dropStatus: boolean; // - If the default drop action is cancelled but the drop is valid, setting this to true will prevent the animated 'repair' from appearing.
         }
@@ -5735,7 +5737,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             tree: tree.TreePanel;
             constructor(tree: tree.TreePanel, config?: TreeFilterConfig);
             clear(): void;
-            filter(value: string|RegExp, attr?: string, startNode?: data.Node): void;
+            filter(value: string | RegExp, attr?: string, startNode?: data.Node): void;
             filterBy(fn: Function, scope?: any, startNode?: data.Node): void;
         }
         export interface TreeLoaderConfig extends util.ObservableConfig {
@@ -5759,7 +5761,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             dataUrl: string;
             directFn: Function;
             nodeParameter: string;
-            paramOrder: string|string[];
+            paramOrder: string | string[];
             paramsAsHash: boolean;
             preloadChildren: boolean;
             requestMethod: string;
@@ -5767,7 +5769,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             url: string;
             constructor(config: TreeLoaderConfig);
             createNode(conf: TreeNodeConfig): TreeNode;
-            load(node: TreeNode, cb?:Function, scope?:any): void;
+            load(node: TreeNode, cb?: Function, scope?: any): void;
         }
         export interface TreeNodeConfig extends data.NodeConfig {
             [customAttributes: string]: any;
@@ -5801,7 +5803,6 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             ui: any;
             constructor(config?: TreeNodeConfig);
             appendChild(nodeConfig: TreeNodeConfig): this;
-            getOwnerTree<T extends TreePanel>(): T;
             beginUpdate(): any;
             cancelExpand(): any;
             collapse(): any;
@@ -5952,7 +5953,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             renderRoot(): any;
             restrictExpand(): any;
             selectPath(): any;
-            setRootNode<T extends TreeNode>(node: TreeNode|TreeNodeConfig|any): T;
+            setRootNode<T extends TreeNode>(node: TreeNode | TreeNodeConfig | any): T;
             toString(): any;
             unregisterNode(): any;
         }
@@ -6060,7 +6061,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             refreshCache(): any;
             removeStyleSheet(id: string): void;
             swapStyleSheet(id: string, url: string): void;
-            updateRule(selector: string|string[], property: string, val: string): boolean;
+            updateRule(selector: string | string[], property: string, val: string): boolean;
         }
         export class DelayedTask {
             constructor(fn?: Function, scope?: any, args?: any[]);
@@ -6156,7 +6157,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             target?: Observable;
         }
         export interface ObservableListenerProperty {
-            [event: string]: IOservableListenersOptions|Function;
+            [event: string]: IOservableListenersOptions | Function;
             scope?: any;
         }
         export interface ObservableConfig {
@@ -6210,7 +6211,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         fireResize(): any;
     }
     export interface WindowConfig extends PanelConfig {
-        animateTarget?: string|Element;
+        animateTarget?: string | Element;
         baseCls?: string;
         closable?: boolean;
         closeAction?: string;
@@ -6218,7 +6219,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
         collapsible?: boolean;
         constrain?: boolean;
         constrainHeader?: boolean;
-        defaultButton?: string|number|Component;
+        defaultButton?: string | number | Component;
         draggable?: boolean;
         expandOnShow?: boolean;
         hideAnimDuration?: number;
@@ -6344,7 +6345,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
             }
             export class TreeGridLoader extends Ext.tree.TreeLoader {
             }
-            export class TreeGridNodeUI extends Ext.tree.TreeNodeUI {}
+            export class TreeGridNodeUI extends Ext.tree.TreeNodeUI { }
         }
         export class TabScrollerMenu { }
     }
