@@ -6350,4 +6350,8 @@ declare namespace Ext {
         export class TabScrollerMenu { }
     }
 }
+
+declare module "ext" {
+    export = Ext;
+}
 //Done
