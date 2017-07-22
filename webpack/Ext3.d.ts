@@ -990,8 +990,7 @@ declare namespace Ext {
         initialConfig: ContainerConfig;
         constructor(config?: ContainerConfig);
         items: util.MixedCollection<Component>;
-        add(comp: ComponentConfig): Component;
-        add(comp: Component): Component;
+        add(comp: (ComponentConfig|Component)|(ComponentConfig|Component)[]): Component;
         afterRender(): any;
         applyDefaults(): any;
         beforeDestroy(): any;
@@ -1126,7 +1125,7 @@ declare namespace Ext {
             setApi(config: { read?: any; create?: any; update?: any; destroy?: any }): void;
         }
         export interface DataReaderConfig {
-            fields?: FieldConfig[];
+            fields?: (FieldConfig|string)[];
             messageProperty?: string;
         }
         export class DataReader {
@@ -1326,7 +1325,7 @@ declare namespace Ext {
             node: any;
             phantom: boolean;
             store: data.Store<T>;
-            static create(fields: FieldConfig[] | string[]): typeof Record;
+            static create(fields: (FieldConfig | string)[]): typeof Record;
             constructor(data: any, key?: any);
             beginEdit(): void;
             cancelEdit(): void;

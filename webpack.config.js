@@ -11,14 +11,15 @@ var config = [{
         libraryTarget: "umd",
         path: buildPath,
         filename: isProd ? "index.js" : "index.dev.js"
-    }
-
+    },
+    devtool: "source-map"
 }, {
     entry: {
         "theme-blue": "./webpack/theme-blue.js",
         "theme-gray": "./webpack/theme-gray.js",
         "ux-style": "./webpack/ux-style.js"
     },
+    devtool: "source-map",
     output: {
         path: buildPath,
         filename: isProd ? "[name].js" : "[name].dev.js"
