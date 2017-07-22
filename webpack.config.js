@@ -14,23 +14,14 @@ var config = [{
     }
 
 }, {
-    entry: "./webpack/theme-blue.js",
-    output: {
-        path: buildPath,
-        filename: isProd ? "theme-blue.js" : "theme-blue.dev.js"
+    entry: {
+        "theme-blue": "./webpack/theme-blue.js",
+        "theme-gray": "./webpack/theme-gray.js",
+        "ux-style": "./webpack/ux-style.js"
     },
-    module: {
-        rules: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.(png|jpg|gif)$/, use: ["url-loader"] },
-            { test: /\.css$/, use: ["style-loader", "css-loader"] }
-        ]
-    }
-}, {
-    entry: "./webpack/theme-gray.js",
     output: {
         path: buildPath,
-        filename: isProd ? "theme-gray.js" : "theme-gray.dev.js"
+        filename: isProd ? "[name].js" : "[name].dev.js"
     },
     module: {
         rules: [
